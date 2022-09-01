@@ -11,7 +11,7 @@ class PositionSerializer(serializers.Serializer):
 class EmployeeSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=128)
     birth_year = serializers.DateField()
-    position = serializers.CharField(source='position')
+    position = serializers.CharField(source='position.appointment', max_length=128)
     wage = serializers.IntegerField()
 
     def create(self, validated_data):
